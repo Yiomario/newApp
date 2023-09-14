@@ -27,9 +27,13 @@ export class LoginPage {
 
       await alert.present();
     } else {
-      // Aquí puedes agregar la lógica para iniciar sesión
-      // Por ejemplo, hacer una solicitud a un servicio de autenticación
-      // y redirigir al usuario a la página principal si las credenciales son válidas.
+      // Supongamos que el inicio de sesión es exitoso y quieres pasar el nombre de usuario a la página de inicio
+      // Puedes hacerlo usando el servicio de enrutamiento y queryParams
+      this.router.navigate(['/home'], {
+        queryParams: {
+          nombreUsuario: this.usuario,
+        },
+      });
     }
   }
 }

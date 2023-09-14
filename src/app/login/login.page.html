@@ -12,14 +12,16 @@
     <ion-title>Bienvenido a ResgistrAPP</ion-title>
     <ion-item>
       <ion-label position="floating">Usuario</ion-label>
-      <ion-input type="text" [(ngModel)]="usuario"></ion-input>
+      <ion-input type="text"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="floating">Contraseña</ion-label>
-      <ion-input type="password" [(ngModel)]="contrasena"></ion-input>
-    </ion-item><ion-button expand="full" color="primary" [routerLink]="['/folder/inbox']">Ingresar</ion-button>
+      <ion-input type="password"></ion-input>
+    </ion-item>
+    <ion-button expand="full" color="primary" [routerLink]="['/folder/inbox']">Ingresar</ion-button>
 
-    <!-- Agregar un enlace para restablecer contraseña -->
+
+    <!-- Agrega un enlace para restablecer contraseña -->
     <ion-router-link routerLink="/cambiar-contrasena">
       <ion-label class="reset-password-link">¿Olvidaste tu contraseña?</ion-label>
     </ion-router-link>
