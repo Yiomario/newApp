@@ -18,14 +18,8 @@ export class LoginPage {
 
   async iniciarSesion() {
     if (this.usuario.trim() === '' || this.contrasena.trim() === '') {
-      // Al menos uno de los campos está vacío, mostrar alerta de campo vacío
-      const alert = await this.alertController.create({
-        header: 'Error',
-        message: 'Por favor, completa todos los campos.',
-        buttons: ['Aceptar'],
-      });
-
-      await alert.present();
+      // Al menos uno de los campos está vacío, mostrar una alerta de campo vacío
+      await this.mostrarAlerta('Error', 'Por favor, completa todos los campos.');
     } else {
       // Supongamos que el inicio de sesión es exitoso y quieres pasar el nombre de usuario a la página de inicio
       // Puedes hacerlo usando el servicio de enrutamiento y queryParams
@@ -35,5 +29,15 @@ export class LoginPage {
         },
       });
     }
+  }
+
+  async mostrarAlerta(header: string, message: string) {
+    const alert = await this.alertController.create({
+      header,
+      message,
+      buttons: ['Aceptar'],
+    });
+
+    await alert.present();
   }
 }

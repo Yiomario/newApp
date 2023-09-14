@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -7,11 +7,20 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./folder.page.scss'],
 })
 export class FolderPage implements OnInit {
-  public folder!: string;
-  private activatedRoute = inject(ActivatedRoute);
-  constructor() {}
+  public folder: string = '';
+  public nombreUsuario: string = '';
+
+  constructor(private activatedRoute: ActivatedRoute) {}
 
   ngOnInit() {
-    this.folder = this.activatedRoute.snapshot.paramMap.get('id') as string;
+    // Obtener el parámetro 'id' de la URL
+    this.folder = this.activatedRoute.snapshot.paramMap.get('id') || '';
+
+    // Obtener el nombre de usuario de los queryParams
+    const nombreUsuarioParam = this.activatedRoute.snapshot.queryParamMap.get('nombreUsuario');
+    if (nombreUsuarioParam) {
+      this.nombreUsuario = nombreUsuarioParam;
+    }
   }
 }
+

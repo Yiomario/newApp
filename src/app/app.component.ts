@@ -1,29 +1,17 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-
+import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   public appPages = [
     { title: 'Profesor', url: '/profesor', icon: 'person' },
     { title: 'Asistencia', icon: 'people' },
     { title: 'Notas', icon: 'reader' },
-    { title: 'Configuracion', icon: 'construct' },
+    { title: 'Configuracion', url: '/bienvenido', icon: 'people' },
+    { title: 'ingreso', url: '/cards', icon: 'school' },
   ];
-  public labels = [];
-  nombreUsuario: string = ''; // Propiedad para almacenar el nombre de usuario
-
-  constructor(private activatedRoute: ActivatedRoute) {}
-
-  ngOnInit() {
-    // Obtener el nombre de usuario de los queryParams
-    this.activatedRoute.queryParams.subscribe((params) => {
-      if (params['nombreUsuario']) {
-        this.nombreUsuario = params['nombreUsuario'];
-      }
-    });
-  }
+  public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
+  constructor() {}
 }
