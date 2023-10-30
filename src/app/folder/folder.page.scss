@@ -38,6 +38,7 @@ ion-menu-button {
   width: 300px; /* Ancho deseado para las tarjetas */
   /* Estilos adicionales de la tarjeta según tus preferencias */
 }
+
 .subtitle-container {
   display: flex;
   justify-content: center;
@@ -47,4 +48,11 @@ ion-menu-button {
 .subtitle {
   font-size: 20px; /* Tamaño de fuente del subtítulo */
   font-weight: bold; /* Puedes ajustar la negrita según tus preferencias */
+}
+ion-tabs {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #fff; /* Cambia el color de fondo según tus preferencias */
+  z-index: 999; /* Asegura que las pestañas estén en la parte superior de otros elementos */
 }
