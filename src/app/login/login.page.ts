@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
 })
+
 export class LoginPage {
   usuario: string = '';
   contrasena: string = '';
@@ -17,24 +18,19 @@ export class LoginPage {
   ) {}
 
   async iniciarSesion() {
-    if (this.usuario.trim() === '' || this.contrasena.trim() === '') {
-      // Al menos uno de los campos está vacío, mostrar una alerta de campo vacío
+    if (!this.usuario.trim() || !this.contrasena.trim()) {
       await this.mostrarAlerta('Error', 'Por favor, completa todos los campos.');
-    } else {
-      // Supongamos que el inicio de sesión es exitoso y quieres pasar el nombre de usuario a la página de inicio
-      // Puedes hacerlo usando el servicio de enrutamiento y queryParams
-      this.router.navigate(['/home'], {
-        queryParams: {
-          nombreUsuario: this.usuario,
-        },
-      });
+      return;
     }
+
+    this.router.navigate(['/folder/inbox', { id: 'inbox' }]);
+
   }
 
   async mostrarAlerta(header: string, message: string) {
     const alert = await this.alertController.create({
-      header,
-      message,
+      header: 'Error',
+      message: 'Los campos están vacíos. Por favor, rellene los campos.',
       buttons: ['Aceptar'],
     });
 

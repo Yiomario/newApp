@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { NavController } from '@ionic/angular';
 
 
 @Component({
@@ -11,7 +12,10 @@ export class FolderPage implements OnInit {
   public folder: string = '';
   public nombreUsuario: string = '';
 
-  constructor(private activatedRoute: ActivatedRoute) {}
+  constructor(
+    private navCtrl: NavController,
+    private activatedRoute: ActivatedRoute // Agrega ActivatedRoute aquí
+  ) {}
 
   ngOnInit() {
     // Obtener el parámetro 'id' de la URL
@@ -23,7 +27,20 @@ export class FolderPage implements OnInit {
       this.nombreUsuario = nombreUsuarioParam;
     }
   }
+
+  irA(pagina: string) {
+    // Aquí debes definir cómo navegar a las páginas correspondientes según la opción seleccionada.
+    // Por ejemplo:
+    if (pagina === 'asingaturas') {
+      this.navCtrl.navigateForward('/asingaturas');
+    } else if (pagina === 'usuarios') {
+      this.navCtrl.navigateForward('/usuarios');
+    } else if (pagina === 'configuracion') {
+      this.navCtrl.navigateForward('/configuracion');
+    }
+  }
 }
+
 
 
 
